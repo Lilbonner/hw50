@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #e0ebd6;
+        }
+        @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+        @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+        .fa-2x {
+            font-size: 2em;
+        }
+        .fa {
+            position: relative;
+            display: table-cell;
+            width: 60px;
+            height: 36px;
+            text-align: center;
+            vertical-align: middle;
+            font-size:20px;
+        }
+
+
+        .main-menu:hover,nav.main-menu.expanded {
+            width:250px;
+            overflow:visible;
+        }
+
+        .main-menu {
+            background:#212121;
+            border-right:1px solid #e5e5e5;
+            position:absolute;
+            top:0;
+            bottom:0;
+            height:120%;
+            left:0;
+            width:60px;
+            overflow:hidden;
+            -webkit-transition:width .05s linear;
+            transition:width .05s linear;
+            -webkit-transform:translateZ(0) scale(1,1);
+            z-index:1000;
+        }
+
+        .main-menu>ul {
+            margin:7px 0;
+        }
+
+        .main-menu li {
+            position:relative;
+            display:block;
+            width:250px;
+        }
+
+        .main-menu li>a {
+            position:relative;
+            display:table;
+            border-collapse:collapse;
+            border-spacing:0;
+            color:#999;
+            font-family: arial;
+            font-size: 14px;
+            text-decoration:none;
+            -webkit-transform:translateZ(0) scale(1,1);
+            -webkit-transition:all .1s linear;
+            transition:all .1s linear;
+
+        }
+
+        .main-menu .nav-icon {
+            position:relative;
+            display:table-cell;
+            width:60px;
+            height:36px;
+            text-align:center;
+            vertical-align:middle;
+            font-size:18px;
+        }
+
+        .main-menu .nav-text {
+            position:relative;
+            display:table-cell;
+            vertical-align:middle;
+            width:190px;
+            font-family: 'Titillium Web', sans-serif;
+        }
+
+        .main-menu>ul.logout {
+            position:absolute;
+            left:0;
+            bottom:0;
+        }
+
+        .no-touch .scrollable.hover {
+            overflow-y:hidden;
+        }
+
+        .no-touch .scrollable.hover:hover {
+            overflow-y:auto;
+            overflow:visible;
+        }
+
+        a:hover,a:focus {
+            text-decoration:none;
+        }
+
+        nav {
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            -o-user-select:none;
+            user-select:none;
+        }
+
+        nav ul,nav li {
+            outline:0;
+            margin:0;
+            padding:0;
+        }
+        .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+            color:#fff;
+            background-color: #030303;
+        }
+        .area {
+            float: left;
+            background: #e2e2e2;
+            width: 100%;
+            height: 100%;
+        }
+        @font-face {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+        }
+        .film {
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid black;
+            box-shadow: 0 2px 2px;
+            width: 250px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            margin-left: 100px;
+            background-color: aliceblue;
+        }
+        .film img {
+            width: 200px;
+            height: 300px;
+            border-radius: 20px;
+        }
+        h1 {
+            font-size: 20px;
+        }
+        h2 {
+            margin-left: 38%;
+            padding: 50px;
+            font-weight: bold;
+        }
+        .navbar {
+            border: 1px solid black;
+            background-color: #1b1f19;
+        }
+        .navbar-brand {
+            background-color: #bacea8;
+            margin-left: 45%;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<header>
+
+    <nav class="main-menu">
+    <ul>
+        <li>
+            <a href="https://jbfarrow.com">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                           Community Dashboard
+                        </span>
+            </a>
+
+        </li>
+        <li class="has-subnav">
+            <a href="#">
+                <i class="fa fa-globe fa-2x"></i>
+                <span class="nav-text">
+                            Global Surveyors
+                        </span>
+            </a>
+
+        </li>
+        <li class="has-subnav">
+            <a href="#">
+                <i class="fa fa-comments fa-2x"></i>
+                <span class="nav-text">
+                            Group Hub Forums
+                        </span>
+            </a>
+
+        </li>
+        <li class="has-subnav">
+            <a href="#">
+                <i class="fa fa-camera-retro fa-2x"></i>
+                <span class="nav-text">
+                            Survey Photos
+                        </span>
+            </a>
+
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-film fa-2x"></i>
+                <span class="nav-text">
+                            Surveying Tutorials
+                        </span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-book fa-2x"></i>
+                <span class="nav-text">
+                           Surveying Jobs
+                        </span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-cogs fa-2x"></i>
+                <span class="nav-text">
+                            Tools & Resources
+                        </span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-map-marker fa-2x"></i>
+                <span class="nav-text">
+                            Member Map
+                        </span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-info fa-2x"></i>
+                <span class="nav-text">
+                            Documentation
+                        </span>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="logout">
+        <li>
+            <a href="#">
+                <i class="fa fa-power-off fa-2x"></i>
+                <span class="nav-text">
+                            Logout
+                        </span>
+            </a>
+        </li>
+    </ul>
+</nav>
+    <div class="navbar bg-#414040FF">
+        <div class="container-fluid">
+            <a class="navbar-brand">Movies recommendation</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</header>
+<body>
+<div>
+    <h2>Лучшие фильмы 90-х годов</h2>
+</div>
+<div id="app"></div>
+<script type="text/babel">
+
+    const Film = ({name, year, photo, genre}) => {
+        return (
+            <div className="film">
+                <img src={photo} alt={'photo of' + name }/>
+                <h1>{name}</h1>
+                <p> {year},{genre}</p>
+            </div>
+        );
+    };
+    const favFilms = (
+        <div>
+            <Film name="Криминальное чтиво " year="1994" genre=" криминал/драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/87b5659d-a159-4224-9bff-d5a5d109a53b/300x450" />
+            <Film name="Легенды осени" year="1994" genre=" мелодрама/вестерн" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/0ea9b6c3-4db2-40c9-8e5b-9c4d2da24d77/600x900" />
+            <Film name="Один дома " year="1990" genre=" комедия" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/022a58e3-5b9b-411b-bfb3-09fedb700401/300x450" />
+            <Film name="Побег из Шоушенка" year="1994" genre=" драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/0b76b2a2-d1c7-4f04-a284-80ff7bb709a4/300x450" />
+            <Film name="Бойцовский клуб " year="1994" genre=" драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/6c5cdb4c-5e28-4552-aac4-beb4efaf718d/300x" />
+            <Film name="Форест гамп" year="1994" genre=" драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/74d79fc9-d6c9-45b8-9f50-9131c3fc3ccc/300x" />
+            <Film name="Матрица " year="1999" genre=" фантастика/боевик" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/b2599b1a-f1a0-4175-82cf-2b27f8b093e2/300x" />
+            <Film name="Леон " year="1994" genre=" боевик/драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/df080df4-6725-4d8f-a79e-dc497543aff0/300x" />
+            <Film name="Достучаться до небес " year="1997" genre=" драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/3fdefbfc-e288-41eb-aa1c-fe31131470c3/300x" />
+            <Film name="Шоу трумана" year="1998" genre=" драма/комедия" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/4483445/ceb4574e-4b3b-43bf-a217-770d95c8afea/300x450" />
+        </div>
+    );
+
+    const container = document.getElementById('app')
+    ReactDOM.createRoot(container).render(favFilms);
+
+</script>
+<footer>
+
+</footer>
+</body>
+</html>

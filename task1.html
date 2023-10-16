@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            background-color: cornsilk;
+        }
+        .film {
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid black;
+            box-shadow: 0 2px 2px;
+            width: 350px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin-left: 200px;
+            background-color: aliceblue;
+        }
+        .film img {
+            width: 300px;
+            height: 450px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+
+    const Film = ({name, year, photo, genre}) => {
+        return (
+            <div className="film">
+                <img src={photo} alt={'photo of' + name }/>
+                <h1>{name}</h1>
+                <p> {year},{genre}</p>
+            </div>
+        );
+    };
+        const favFilms = (
+            <div>
+                <Film name="Криминальное чтиво " year="1994" genre=" криминал/драма" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/87b5659d-a159-4224-9bff-d5a5d109a53b/300x450" />
+                <Film name="Легенды осени" year="1994" genre=" мелодрама/вестерн" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/0ea9b6c3-4db2-40c9-8e5b-9c4d2da24d77/600x900" />
+                <Film name="Король говорит!" year="2010" genre=" драма/биография" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/87b66d75-b407-4f5b-924c-d3d3a9c96933/600x900" />
+            </div>
+        );
+
+    const container = document.getElementById('app')
+    ReactDOM.createRoot(container).render(favFilms);
+
+</script>
+</body>
+</html>
